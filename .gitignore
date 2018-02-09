@@ -1,0 +1,26 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/AutomaticWebTest/v15
+/ConsoleApp/bin/Debug
+/ConsoleApp/obj/Debug
+/ConsoleApp/ConsoleApp.csproj
+/ConsoleApp/packages.config
+/ConsoleApp/App.config
+/ConsoleApp/Properties/AssemblyInfo.cs
+/Domain/bin/Debug
+/Domain/obj/Debug
+/.vs
+/packages
+/WebTest/.vs/WebTest/v15
+/WebTest/bin/Debug
+/WebTest/obj/Debug
+/WebTest.sln
+/WebTest/WebTest.csproj
+/WebTest/packages.config
+/WebTest/Properties/AssemblyInfo.cs
+/Domain/Domain.csproj
+/Domain/packages.config
+/Domain/WebDriverSpecific.cs
+/Domain/Properties/AssemblyInfo.cs
