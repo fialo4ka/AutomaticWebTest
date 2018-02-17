@@ -24,3 +24,6 @@
 /Domain/packages.config
 /Domain/WebDriverSpecific.cs
 /Domain/Properties/AssemblyInfo.cs
+/Domain/Domain.csproj.user
+/WebTest/WebTest.csproj.user
+/WebTest/Tests/TestStart.cs

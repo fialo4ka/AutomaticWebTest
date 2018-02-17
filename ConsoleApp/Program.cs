@@ -1,4 +1,5 @@
-﻿using WebTest;
+﻿using System;
+using WebTest;
 
 namespace ConsoleApp
 {
@@ -6,8 +7,9 @@ namespace ConsoleApp
 	{
 		static void Main(string[] args)
 		{
-			var a = new TestStart();
-			a.Test();
-		}
+            var _delfiArticleCompare = new DelfiArticleCompare();
+            Console.ReadLine();
+            Environment.Exit(0);
+        }
 	}
 }
