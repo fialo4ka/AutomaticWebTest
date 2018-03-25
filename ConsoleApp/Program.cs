@@ -1,5 +1,8 @@
 ﻿using Domain.Common;
+using Domain.Helper;
 using Domain.Models;
+using log4net;
+using log4net.Config;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +12,14 @@ namespace ConsoleApp
 {
     class Program
     {
-        static void Main(string[] args)
+		private static readonly ILog log = LogManager.GetLogger("FileAppender");
+
+		static void Main(string[] args)
         {
-            var _delfiArticleCompare = new DelfiArticleCompare();
+			XmlConfigurator.Configure();
+
+			log.Info("Start test.");
+			var _delfiArticleCompare = new DelfiArticleCompare();
             int step;
             do
             {
@@ -80,7 +88,7 @@ namespace ConsoleApp
                         Console.WriteLine($"{i} articles are NOT equals");
                         Console.WriteLine($"\tmain:{delfiArticleCompare.Main[i]?.Title}\tmobile:{delfiArticleCompare.Mobile[i]?.Title}");
                     }
-                    if (delfiArticleCompare.Mobile[i]?.CommentCount == delfiArticleCompare.Main[i]?.CommentCount)
+                    if (delfiArticleCompare.Mobile[i]?.CommentCount.FromStringToInt() == delfiArticleCompare.Main[i]?.CommentCount.FromStringToInt())
                         Console.WriteLine($"{i} comment count are equals");
                     else
                     {
@@ -106,10 +114,10 @@ namespace ConsoleApp
                         Console.WriteLine($"{i} articles are NOT equals");
                         Console.WriteLine($"\tmain:{delfiArticleCompare.PageList[i]?.Title}\tmobile:{delfiArticleCompare.PageMobList[i]?.Title}");
                     }
-                    if (delfiArticleCompare.PageList[i]?.CommentCount == delfiArticleCompare.PageMobList[i]?.CommentCount)
-                        Console.WriteLine($"{i} comment count are equals");
+                    if (delfiArticleCompare.PageList[i]?.CommentCount.FromStringToInt() == delfiArticleCompare.PageMobList[i]?.CommentCount.FromStringToInt())
+                        Console.WriteLine($"{i} comment count are equals {delfiArticleCompare.PageList[i]?.CommentCount.FromStringToInt()} {delfiArticleCompare.PageMobList[i]?.CommentCount.FromStringToInt()}");
                     else
-                    {
+					{
                         Console.WriteLine($"{i} comment count are NOT equals");
                         Console.WriteLine($"\tmain:{delfiArticleCompare.PageList[i]?.CommentCount}\tmobile:{delfiArticleCompare.PageMobList[i]?.CommentCount}");
                     }

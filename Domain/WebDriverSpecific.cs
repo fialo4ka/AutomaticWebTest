@@ -1,4 +1,5 @@
-﻿using OpenQA.Selenium.Chrome;
+﻿using log4net;
+using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Remote;
@@ -7,6 +8,7 @@ namespace Domain
 {
 	public class WebDriverSpecific
 	{
+		private static readonly ILog log = LogManager.GetLogger("FileAppender");
 		static RemoteWebDriver _fireFoxDriver;
 		public RemoteWebDriver FireFoxDriver
 		{
@@ -24,7 +26,10 @@ namespace Domain
 			get
 			{
 				if (_chromeFoxDriver == null)
+				{
+					log.Info("driver initial");
 					_chromeFoxDriver = new ChromeDriver(@"C:\Users\Tonja\source\repos\AutomaticWebTest\packages");
+				}
 				return _chromeFoxDriver;
 			}
 		}
